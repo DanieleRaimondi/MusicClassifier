@@ -374,7 +374,7 @@ class EmbeddingJourneyVisualizer:
         
         if save:
             PLOTS_DIR.mkdir(parents=True, exist_ok=True)
-            filepath = PLOTS_DIR / f"embedding_journey_{song_name[:30]}.png"
+            filepath = PLOTS_DIR / f"embedding_journey_{song_name}.png"
             plt.savefig(filepath, dpi=150, bbox_inches='tight')
             print(f"✓ Journey visualization saved: {filepath}")
         
@@ -509,7 +509,7 @@ def main():
     
     # 1. Single song journey
     print("\n1. Creating single song transformation...")
-    your_song_path = "/Users/danieleraimondi/MusicRecommenderSystem/data/raw/ITALODANCE/Nordic Stars - Crying in the rain (DanyR Italomelodic remix).mp3"
+    your_song_path = "/Users/danieleraimondi/MusicClassifier/data/raw/ITALODANCE/Nordic Stars - Crying in the rain (DanyR Italomelodic remix).mp3"
     
     if Path(your_song_path).exists():
         print(f"   Using: Nordic Stars - Crying in the rain")

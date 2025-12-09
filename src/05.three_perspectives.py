@@ -112,7 +112,7 @@ def create_three_perspectives_plot(
                bbox=dict(boxstyle='round,pad=0.4', facecolor='wheat', alpha=0.85))
     
     ax_top.text(0.5, 0.15, 
-               'The final result: months of studio work synthesized into a single audio waveform.\n'
+               'The final result: weeks of studio work synthesized into a single audio waveform.\n'
                'Every peak and valley represents musical decisions made by ear and creative intuition',
                transform=ax_top.transAxes, fontsize=11, 
                ha='center', va='center', style='italic',
@@ -165,7 +165,7 @@ def create_three_perspectives_plot(
     ax_right.text(0.5, 0.065,
                  'Each song becomes a 641-dimensional vector capturing its sonic fingerprint.\n'
                  'Once music is numbers, anything is possible: clustering, similarity search, visualization...\n'
-                 'Here: two similar genres naturally separate in space',
+                 'Here: two similar genres naturally separated in a 2D space',
                  transform=ax_right.transAxes, fontsize=11,
                  ha='center', va='center', style='italic',
                  bbox=dict(boxstyle='round,pad=0.6', facecolor='#E5F5FF',

@@ -374,7 +374,7 @@ class EmbeddingJourneyVisualizer:
         
         if save:
             PLOTS_DIR.mkdir(parents=True, exist_ok=True)
-            filepath = PLOTS_DIR / f"embedding_journey_{song_name[:30]}.png"
+            filepath = PLOTS_DIR / f"embedding_journey_{song_name}.png"
             plt.savefig(filepath, dpi=150, bbox_inches='tight')
             print(f"✓ Journey visualization saved: {filepath}")
         

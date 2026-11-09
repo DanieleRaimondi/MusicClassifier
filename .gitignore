@@ -52,3 +52,16 @@ Thumbs.db
 
 # Output plots 
 outputs/plots/*.html
+# Audio in any folder (never commit music)
+*.mp3
+*.wav
+*.flac
+*.aiff
+*.aif
+*.m4a
+*.ogg
+*.opus
+
+# Local secrets
+.env
+.env.*

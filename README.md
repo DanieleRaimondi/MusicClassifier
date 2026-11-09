@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![librosa](https://img.shields.io/badge/librosa-0.10.0-orange.svg)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3.0-green.svg)
-![XGBoost](https://img.shields.io/badge/XGBoost-2.0.0-red.svg)
+![XGBoost](https://img.shields.io/badge/XGBoost-3.1+-red.svg)
 
 *Bridging two worlds: music production and machine learning*
 
@@ -23,7 +23,7 @@ In the early 2010s, I was passionate about electronic music production, particul
 
 Fast forward to today: as a **Data Scientist**, I became curious about how computers analyze and understand music. This small project combines both passions, music and data science, to create a bridge between artistic intuition and machine learning.
 
-**The dataset**: ~300 copyright-free songs from my personal collection (Italodance and Trance), including my own 2014 remix.
+**The dataset**: ~300 Italodance and Trance tracks from my personal music collection, including my own 2014 remix. The audio is **not distributed**: this repository contains only code and aggregate plots, and every track remains the property of its rights holders (see *Data & rights* below).
 
 **The goal**: Transform audio signals into numerical embeddings, build a genre classifier with explainability, create a similarity search engine, and visualize how machines perceive musical relationships—ultimately understanding the technology behind modern music recommendation systems.
 
@@ -133,7 +133,7 @@ Once music is transformed into numerical embeddings, numerous applications becom
 | **Audio Processing** | librosa 0.10.0 | Loading, resampling, feature extraction |
 | **Feature Extraction** | librosa | MFCCs, chroma, spectral, rhythmic, harmonic features |
 | **ML Framework** | scikit-learn 1.3.0 | Preprocessing, PCA, cross-validation |
-| **Classification** | XGBoost 2.0.0 | Genre classification with gradient boosting |
+| **Classification** | XGBoost 3.1+ | Genre classification with gradient boosting |
 | **Explainability** | SHAP 0.43.0 | Model interpretation and feature importance |
 | **Dimensionality Reduction** | UMAP 0.5.4 | Nonlinear projection for visualization |
 | **Similarity Search** | scikit-learn | Cosine similarity, MMR algorithm |
@@ -206,5 +206,36 @@ All temporal features are aggregated using **mean** and **std** (or percentiles 
 - **Overfitting is the enemy**: With limited data (~300 songs), simpler models generalize better than complex deep networks
 - **Visualization validates embeddings**: 2D/3D UMAP projections provide immediate visual confirmation that embeddings capture meaningful structure
 - **Explainability builds trust**: SHAP explanations make the black-box model interpretable and debuggable
+
+---
+
+## ▶️ Running it on your own music
+
+```bash
+pip install -r requirements.txt
+
+# Put your own MP3 files in data/raw/, one folder per genre:
+#   data/raw/ITALODANCE/*.mp3
+#   data/raw/TRANCE/*.mp3
+
+python src/01_feature_extraction.py   # audio -> 641-D embeddings (data/processed/)
+python src/02_embedding_journey.py    # single-song journey + 2D/3D UMAP
+python src/03_genre_classifier.py     # XGBoost + SHAP
+python src/04_similarity_search.py    # similarity search CLI
+python src/05_three_perspectives.py   # waveform / spectrogram / embedding figure
+```
+
+Paths and audio settings live in [`config.py`](config.py). Scripts 02, 03 and 05 use my own remix as
+the example track; change the file name to one of yours.
+
+---
+
+## ⚖️ Data & rights
+
+- **No audio is included** in this repository, and none should ever be committed: `data/raw/` and all
+  common audio formats are git-ignored. Generated embeddings, metadata and models are git-ignored too.
+- The tracks used for the experiments come from my personal collection and belong to their respective
+  rights holders. Only aggregate plots are published; the example track in them is my own 2014 remix.
+- This is a personal, non-commercial learning project.
 
 ---

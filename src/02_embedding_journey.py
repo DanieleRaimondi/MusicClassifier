@@ -509,7 +509,11 @@ def main():
     
     # 1. Single song journey
     print("\n1. Creating single song transformation...")
-    your_song_path = "data/raw/ITALODANCE/Nordic Stars - Crying in the rain (DanyR Italomelodic remix).mp3"
+    your_song_path = str(
+        Path(__file__).resolve().parent.parent
+        / "data" / "raw" / "ITALODANCE"
+        / "Nordic Stars - Crying in the rain (DanyR Italomelodic remix).mp3"
+    )
     
     if Path(your_song_path).exists():
         print(f"   Using: Nordic Stars - Crying in the rain")
